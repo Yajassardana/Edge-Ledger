@@ -1,0 +1,61 @@
+@mixin flexAlign {
+	display: flex;
+	align-items: center;
+}
+
+.navbar {
+	@include flexAlign();
+	justify-content: space-between;
+	color: black;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+	background: #ffffff;
+}
+.navbar {
+	.logo {
+		@include flexAlign();
+		margin-left: 3rem;
+		img {
+			height: 4rem;
+		}
+	}
+}
+.navbar ul {
+	@include flexAlign();
+	list-style: none;
+	.nav-item {
+		padding: 0.5rem;
+		margin: 0 2rem;
+		&:last-child {
+			margin-right: 10rem;
+		}
+		a {
+			color: black;
+			&:hover {
+				font-weight: 600;
+			}
+		}
+	}
+}
+@media (max-width: 500px) {
+	.navbar {
+		flex-direction: column;
+		ul {
+			flex-direction: column;
+			.nav-item {
+				&:last-child {
+					margin: 0 2rem;
+				}
+			}
+		}
+	}
+}
+@media (max-width: 786px) {
+	.nav-item {
+		&:last-child {
+			margin: 0 1rem;
+		}
+	}
+}
